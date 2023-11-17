@@ -1,0 +1,72 @@
+<body>
+    <button (click)="scrollToTop()" class="scroll-to-top-btn" *ngIf="showScrollButton">
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+          </svg>
+    </button>
+
+   
+
+<div class="barraSearch" style="margin-top: 50px;">
+    <div><img src="assets/images/poke.png" alt="" style="width: 250px; height: 100px; margin-bottom: 50px;"></div>
+    <input type="text" [(ngModel)]="searchTerm" (input)="onSearchChange(searchTerm)" placeholder="Search your Pokemon"/>
+</div>
+  
+<div class="homePoke" 
+ infinite-scroll
+    [infiniteScrollDistance]="scrollDistance"
+    [infiniteScrollUpDistance]="scrollUpDistance"
+    [infiniteScrollThrottle]="100"
+    (scrolledUp)="loadMorePokemonsUp()"
+    (scrolled)="loadMorePokemons()">
+
+    <!-- <div *ngIf="noMatchesFound" style="height: 100vh;">No se encontraron Pokémon.</div> -->
+
+    <div *ngFor="let pokemon of filteredPokemonList" class="card" style="width: 18rem;">
+    <div class="card-body">
+        <div class="container-pokemon" [ngClass]="getPokemonTypeClasses(pokemon)">
+            <img *ngIf="pokemon.sprites"  [src]="pokemon.sprites?.other['official-artwork']?.front_default || ''" class="card-img-top" alt="...">
+        </div>
+        <div class="container-id">
+            <p class="card-text">#{{numId}}{{ pokemon.id }}</p>
+        </div>
+      <h3 class="card-title">{{ pokemon.name }}</h3>
+      <h3 class="card-types">
+        <span *ngIf="pokemon.types && pokemon.types.length > 0">
+          <ng-container *ngFor="let typeObj of pokemon.types; let last = last">
+            <button class="btnType"  [ngClass]="typeObj.type.name">
+                {{ typeObj.type.name }}
+            </button>
+            <span *ngIf="!last"></span> <!-- Agrega una coma si no es el último tipo -->
+          </ng-container>
+        </span>
+      </h3>
+      <div class="container-datos">
+        <button class="btnType dato">{{ pokemon.height }}M</button>
+        <button class="btnType dato">{{ pokemon.weight }}KG</button>
+    </div>
+    </div>
+  </div>
+
+
+  <div class="card" style="width: 18rem;" *ngIf="noMatchesFound" >
+    <div class="card-body">
+        <div class="container-pokemon">
+            <img src="assets/images/who.png" class="card-img-top" alt="...">
+        </div>
+        <div class="container-id">
+            <p class="card-text"># ?</p>
+        </div>
+      <h3 class="card-title">NOTFOUND</h3>
+      <h3 class="card-types">
+        NOTFOUND
+      </h3>
+      <div class="container-datos">
+        <button class="btnType dato">-</button>
+        <button class="btnType dato">-</button>
+    </div>
+    </div>
+  </div>
+</div>
+<footer style="height: 20vh; background-color: red;"></footer>
+</body>

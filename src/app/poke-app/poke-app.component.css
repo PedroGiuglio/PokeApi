@@ -1,0 +1,209 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: #f5c556;;
+    color: white;
+}
+
+.barraSearch{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.barraSearch input{
+    width: 500px;
+    border-radius: 100vmax;
+    border-style: none;
+    height: 50px;
+    text-align: center;
+}
+
+.btn{
+    border-radius: 100vmax;
+    border-style: none;
+    height: 40px;
+    margin-top: 5px;
+    width: 100px;
+    text-transform: uppercase;
+    color: white;
+    margin-left: -105px;
+    font-weight: bold;
+}
+
+.pokeLogo{
+    background-image: url(/pokeAPI/src/images/poke.png);
+    background-size: cover;
+    background-position: center;
+    background-color: blue;
+}
+
+
+.homePoke{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 60%;
+    height: 100%;
+    text-align: center;
+    margin-top: 150px;
+}
+
+
+.homePoke .card{
+    width: 150px;
+    height: 350px;
+    margin-bottom: 150px;
+    border-radius: 10%;
+}
+
+.homePoke .card-body{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+.homePoke .card-body .container-pokemon{
+    /* background-color: rgb(236,242,244,0.8); */
+    margin-top: -150px;
+    border-radius: 50%;
+    box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.17);
+    -webkit-box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.17);
+    -moz-box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.17);
+}
+
+.homePoke .card .container-pokemon img{
+    width: 200px;
+    height: 200px;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+.homePoke .card .container-id{
+    width: 100px;
+    border: none;
+    padding: 10px 20px;
+    background-color: rgba(107, 107, 107, 0.4);
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 100vmax;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.card-title{
+    margin-bottom: 25px;
+    color:rgb(109,70,89);
+    font-weight: bold;
+}
+
+h3::first-letter{
+    text-transform: uppercase;
+} 
+
+.scroll-to-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    border-radius: 50%; /* Hace que el borde del botón sea redondo */
+    background-color: #e83e34; /* Cambia el color de fondo según tus preferencias */
+    color: #fff; /* Cambia el color del texto según tus preferencias */
+    border: none; /* Elimina el borde del botón */
+    outline: none; /* Elimina el contorno del botón al hacer clic */
+    display: inline-block;
+}
+
+.scroll-to-top-btn.show {
+    display: block; /* Muestra el botón cuando se cumple la condición */
+}
+
+
+.card-types{
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+}
+
+.btnType{
+    border-radius: 100vmax;
+    border-style: none;
+    height: 30px;
+    width: 100px;
+    text-transform: uppercase;
+    color: white;
+    margin-right: 5px;
+    box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.29);
+    -webkit-box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.29);
+    -moz-box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.29);
+}
+
+.normal { background-color:#A8A878;}
+.fire {background-color: #F08030;}
+.water {background-color: #6890F0;}
+.grass {background-color: #78C850;}
+.electric{background-color: #F8D030;}
+.ice{background-color: #98D8D8;}
+.fighting{background-color: #C03028;}
+.poison{background-color: rgb(185,104,137)}
+.ground{background-color: #E0C068;}
+.flying{background-color: #A890F0;}
+.psychic{background-color: #F85888;}
+.bug{background-color: #A8B820;}
+.rock{background-color: #B8A038;}
+.ghost{background-color: #705898;}
+.dark{background-color: #705848;}
+.dragon{background-color: #7038F8;}
+.steel{background-color: #B8B8D0;}
+.fairy{background-color: #F0B6BC;}
+
+.container-datos{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.dato{
+    color: black;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .barraSearch input{
+        width: 70%;
+        border-radius: 100vmax;
+        border-style: none;
+        height: 50px;
+        text-align: center;
+    }
+
+    .scroll-to-top-btn{
+        position: fixed;
+        z-index: 2;
+        
+    }
+
+ 
+
+}
